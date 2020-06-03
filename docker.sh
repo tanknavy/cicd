@@ -1,11 +1,15 @@
 #!/bin/bash
+# git clone repository-> build image -> test iamage/container -> start container
 #maven打包
 mvn clean package
 echo 'package ok!'
 echo 'build start!'
-cd ./infrastructure/eureka_server
-service_name="eureka-server"
-service_prot=8761
+#cd ./infrastructure/eureka_server
+#project path in git repository
+cd ./
+#service_name="eureka-server"
+service_name="thymeleaf"
+service_prot=8097
 #查看镜像id
 IID=$(docker images | grep "$service_name" | awk '{print $3}')
 echo "IID $IID"
